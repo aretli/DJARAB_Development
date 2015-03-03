@@ -6,12 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,8 +15,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.InputStream;
 
 
 public class MainActivity extends Activity {
@@ -89,8 +82,6 @@ public class MainActivity extends Activity {
         logo.setVisibility(View.GONE);
         btAdapter = BluetoothAdapter.getDefaultAdapter();
         // show The Image
-        new DownloadImageTask((ImageView) findViewById(R.id.logo))
-                .execute("http://findicons.com/files/icons/2653/android_icons_2/600/bluetooth.png");
         if(btAdapter.isEnabled()){
             String address = btAdapter.getAddress();
             String name = btAdapter.getName();
@@ -130,31 +121,6 @@ public class MainActivity extends Activity {
                 statusUpdate.setText("Bluetooth Off");
             }
         });
-    }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
     }
 
     @Override
