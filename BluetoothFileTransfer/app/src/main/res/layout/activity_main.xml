@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/material_blue_grey_950"
+    android:weightSum="1">
+
+    <TextView android:id="@+id/result" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:padding = "14dp"
+        android:text="@string/hello_world"
+        android:textColor="#FFFFFF" />
+
+    <Button android:id="@+id/connectBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connect"
+        android:onClick="buttonHandler"
+        android:layout_gravity="center_vertical"
+        style="@style/btnStyleGenoa"/>
+
+    <Button android:id="@+id/disconnectBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disconnect"
+        android:onClick="buttonHandler"
+        style="@style/btnStyleGenoa" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Paired Devices"
+        android:onClick="buttonHandler"/>
+
+    <ImageView android:id="@+id/logo"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/bluetooth"
+        android:layout_weight="0.63" />
+</LinearLayout>

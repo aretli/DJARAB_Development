@@ -1,0 +1,5 @@
+C:\Users\Anthony\AndroidStudioProjects\BluetoothConnect\app\build\intermediates\classes\debug
+C:\Users\Anthony\AndroidStudioProjects\BluetoothConnect\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-e388cac3c61f620fe2cede60e18c694c910324ca.jar
+C:\Users\Anthony\AndroidStudioProjects\BluetoothConnect\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-c0bc24735062b2ed9efe2725a780ece4b2fbb982.jar
+C:\Users\Anthony\AndroidStudioProjects\BluetoothConnect\app\build\intermediates\pre-dexed\debug\classes-0925bf836de4d80d3a32f61c40a5ab2b1e51acd7.jar
+C:\Users\Anthony\AndroidStudioProjects\BluetoothConnect\app\build\intermediates\pre-dexed\debug\classes-c0ba47301b8b47d9bcb2f5bcaaa6e5c88778eabb.jar

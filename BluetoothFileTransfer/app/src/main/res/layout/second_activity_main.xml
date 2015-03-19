@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_blue_grey_950"
+    tools:context="org.ece435.bluetoothconnect.SecondActivity" >
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Text"
+        android:textColor="#FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/turnOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/on"
+            style="@style/btnStyleGenoa"/>
+
+        <Button
+            android:id="@+id/turnOff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/off"
+            style="@style/btnStyleGenoa"/>
+
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/paired"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/List"
+            style="@style/btnStyleGenoa"/>
+
+        <Button
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Find"
+            style="@style/btnStyleGenoa"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth Configuration"
+            android:onClick="secondButtonHandler"/>
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF">
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>
