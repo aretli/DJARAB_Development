@@ -1,6 +1,5 @@
 package org.ece435.bluetoothfiletransfer;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class ConfigurationActivity extends ActionBarActivity {
 
     /*CALLED WHEN THE ACTIVITY IS FIRST CREATED*/
     private BluetoothAdapter btAdapter;
@@ -37,26 +36,26 @@ public class MainActivity extends ActionBarActivity {
                 case(BluetoothAdapter.STATE_TURNING_ON) :
                 {
                     toastText = "Bluetooth turning on";
-                    Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigurationActivity.this, toastText, Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case(BluetoothAdapter.STATE_ON) :
                 {
                     toastText = "Bluetooth on";
-                    Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigurationActivity.this, toastText, Toast.LENGTH_SHORT).show();
                     setupUI();
                     break;
                 }
                 case(BluetoothAdapter.STATE_TURNING_OFF) :
                 {
                     toastText = "Bluetooth turning off";
-                    Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigurationActivity.this, toastText, Toast.LENGTH_SHORT).show();
                     break;
                 }
                 case(BluetoothAdapter.STATE_OFF) :
                 {
                     toastText = "Bluetooth off";
-                    Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigurationActivity.this, toastText, Toast.LENGTH_SHORT).show();
                     break;
                 }
             }
@@ -66,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.configuration_main);
         setupUI();
     }
 
@@ -145,7 +144,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void buttonHandler(View v) {
-        Intent myIntent = new Intent(this, SecondActivity.class);
+        Intent myIntent = new Intent(this, PairActivity.class);
+        startActivity(myIntent);
+    }
+
+    public void returnHomeHandler(View v) {
+        Intent myIntent = new Intent(this, TitleActivity.class);
         startActivity(myIntent);
     }
 }

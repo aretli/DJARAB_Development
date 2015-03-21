@@ -1,13 +1,11 @@
 package org.ece435.bluetoothfiletransfer;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -18,28 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Set;
-import android.os.Bundle;
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import java.util.Set;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class SecondActivity extends ActionBarActivity {
+public class PairActivity extends ActionBarActivity {
 
-    private static final int REQUEST_ENABLE_BT = 1;
-    private Button onBtn;
-    private Button offBtn;
+
     private Button listBtn;
     private Button findBtn;
     private TextView text;
@@ -51,14 +31,12 @@ public class SecondActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_activity_main);
+        setContentView(R.layout.pair_main);
 
         Intent intent = this.getIntent();
 
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (myBluetoothAdapter == null) {
-            onBtn.setEnabled(false);
-            offBtn.setEnabled(false);
             listBtn.setEnabled(false);
             findBtn.setEnabled(false);
             text.setText("Status: not supported");
@@ -66,25 +44,6 @@ public class SecondActivity extends ActionBarActivity {
             Toast.makeText(getApplicationContext(), "Your device does not support Bluetooth",
                     Toast.LENGTH_LONG).show();
         } else {
-            text = (TextView) findViewById(R.id.text);
-            onBtn = (Button)findViewById(R.id.turnOn);
-            onBtn.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    on(v);
-                }
-            });
-
-            offBtn = (Button)findViewById(R.id.turnOff);
-            offBtn.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    off(v);
-                }
-            });
-
             listBtn = (Button)findViewById(R.id.paired);
             listBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -107,31 +66,6 @@ public class SecondActivity extends ActionBarActivity {
             // create arrayAdapter containing BT Devices, set it to ListView
             BTArrayAdapter = new ArrayAdapter<String>(this,  R.layout.custom_textview);
             myListView.setAdapter(BTArrayAdapter);
-        }
-    }
-
-    public void on(View view){
-        if (!myBluetoothAdapter.isEnabled()) {
-            Intent turnOnIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(turnOnIntent, REQUEST_ENABLE_BT);
-
-            Toast.makeText(getApplicationContext(),"Bluetooth turned on",
-                    Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(getApplicationContext(),"Bluetooth is already on",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == REQUEST_ENABLE_BT){
-            if(myBluetoothAdapter.isEnabled()) {
-                text.setText("Status: Enabled");
-            } else {
-                text.setText("Status: Disabled");
-            }
         }
     }
 
@@ -173,14 +107,6 @@ public class SecondActivity extends ActionBarActivity {
 
             registerReceiver(bReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
         }
-    }
-
-    public void off(View view){
-        myBluetoothAdapter.disable();
-        text.setText("Status: Disconnected");
-
-        Toast.makeText(getApplicationContext(),"Bluetooth turned off",
-                Toast.LENGTH_LONG).show();
     }
 
     @Override

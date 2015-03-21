@@ -32,6 +32,12 @@
         android:text="View Paired Devices"
         android:onClick="buttonHandler"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Home Page"
+        android:onClick="returnHomeHandler"/>
+
     <ImageView android:id="@+id/logo"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
