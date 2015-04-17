@@ -38,6 +38,14 @@ public class TitleActivity extends Activity {
         Intent myIntent = new Intent(this, FileActivity.class);
         startActivity(myIntent);
     }
+    public void wifiConfigHandler(View v) {
+        Intent myIntent = new Intent(this, WifiConfigActivity.class);
+        startActivity(myIntent);
+    }
+    public void wifiListNetworkHandler(View v) {
+        Intent myIntent = new Intent(this, WifiListNetworkActivity.class);
+        startActivity(myIntent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -5,6 +5,8 @@
     <string name="configuration">Connect Bluetooth</string>
     <string name="paired_devices">List of Paired Devices</string>
     <string name="send_receive">Send/Receive File</string>
+    <string name="wificonfig">WiFi Configuration</string>
+    <string name="wifilistnetwork">WiFi List Network</string>
     <string name="hello_world">Hello world!</string>
     <string name="home">Bluetooth File Transfer</string>
     <string name="action_settings">Settings</string>
