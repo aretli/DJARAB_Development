@@ -4,35 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_blue_grey_950"
-    tools:context="org.ece435.bluetoothconnect.TitleActivity" >
+    tools:context=".WifiMainActivity" >
 
     <TextView android:id="@+id/name" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="40pt"
         android:padding = "14dp"
         android:layout_gravity="center"
-        android:text="@string/app_name"
+        android:text="@string/wifihome"
         android:textColor="#FFFFFF" />
-
-    <ImageView android:id="@+id/logo"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/file"
-        android:layout_weight="0.93" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send/Receive File"
-        android:onClick="fileHandler"
+        android:text="Send File"
+        android:onClick="clientHandler"
         style="@style/btnStyleGenoa"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bluetooth Configuration"
-        android:onClick="configHandler"
+        android:text="Receive File"
+        android:onClick="serverHandler"
         style="@style/btnStyleGenoa"/>
 
     <Button
@@ -52,10 +45,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WiFi File Transfer"
-        android:onClick="wifiMainHandler"
-        style="@style/btnStyleGenoa"/>
-
-
+        android:text="Back To Home Screen"
+        android:onClick="returnHomeHandler"/>
 
 </LinearLayout>

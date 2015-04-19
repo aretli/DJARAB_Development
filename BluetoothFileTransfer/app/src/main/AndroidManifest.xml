@@ -29,6 +29,18 @@
             android:label="@string/wifilistnetwork" >
         </activity>
         <activity
+            android:name=".WifiServerActivity"
+            android:label="@string/wifiserver" >
+        </activity>
+        <activity
+            android:name=".WifiClientActivity"
+            android:label="@string/wificlient" >
+        </activity>
+        <activity
+            android:name=".WifiMainActivity"
+            android:label="@string/wifihome" >
+        </activity>
+        <activity
             android:name=".TitleActivity"
             android:label="@string/home" >
             <intent-filter>
@@ -49,5 +61,6 @@
     <uses-feature android:name="android.hardware.camera.autofocus"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
