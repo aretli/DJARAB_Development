@@ -41,6 +41,14 @@
             android:label="@string/wifihome" >
         </activity>
         <activity
+            android:name="org.ece435.ezfiletransfer.WifiServerPhotoActivity"
+            android:label="@string/wifiserver" >
+        </activity>
+        <activity
+            android:name="org.ece435.ezfiletransfer.WifiClientPhotoActivity"
+            android:label="@string/wificlient" >
+        </activity>
+        <activity
             android:name="org.ece435.ezfiletransfer.TitleActivity"
             android:label="@string/home" >
             <intent-filter>

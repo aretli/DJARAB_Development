@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
@@ -22,14 +22,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WifiServerActivity extends ActionBarActivity {
+/*
+ * Permission needed:
+ * <uses-permission android:name="android.permission.INTERNET"/>
+ * <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+ */
+
+public class WifiServerPhotoActivity extends ActionBarActivity {
 
     TextView infoIp, infoPort;
+    EditText editFileName;
+    Button buttonConnect;
     String filename;
     static final int SocketServerPORT = 8080;
     ServerSocket serverSocket;
-    EditText editFileName;
-    Button buttonConnect;
 
     ServerSocketThread serverSocketThread;
 
@@ -40,18 +46,19 @@ public class WifiServerActivity extends ActionBarActivity {
         infoIp = (TextView) findViewById(R.id.infoip);
         infoPort = (TextView) findViewById(R.id.infoport);
         editFileName = (EditText) findViewById(R.id.filename);
-        infoIp.setText(getIpAddress());
 
-        serverSocketThread = new ServerSocketThread();
-        serverSocketThread.start();
+        infoIp.setText(getIpAddress());
         buttonConnect = (Button) findViewById(R.id.connect);
         buttonConnect.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 filename = editFileName.getText().toString();
-                Toast.makeText(WifiServerActivity.this, "File to be sent is: " + filename, Toast.LENGTH_LONG).show();
+                Toast.makeText(WifiServerPhotoActivity.this, "File to be sent is: " + filename, Toast.LENGTH_LONG).show();
             }});
+
+        serverSocketThread = new ServerSocketThread();
+        serverSocketThread.start();
     }
 
     @Override
@@ -107,7 +114,7 @@ public class WifiServerActivity extends ActionBarActivity {
 
             try {
                 serverSocket = new ServerSocket(SocketServerPORT);
-                WifiServerActivity.this.runOnUiThread(new Runnable() {
+                WifiServerPhotoActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
@@ -148,24 +155,26 @@ public class WifiServerActivity extends ActionBarActivity {
         public void run() {
             File file = new File(
                     Environment.getExternalStorageDirectory(),
-                    "test.txt");
+                    "android-er_sketch_1000.png");
 
             byte[] bytes = new byte[(int) file.length()];
             BufferedInputStream bis;
             try {
                 bis = new BufferedInputStream(new FileInputStream(file));
                 bis.read(bytes, 0, bytes.length);
-                OutputStream os = socket.getOutputStream();
-                os.write(bytes, 0, bytes.length);
-                os.flush();
+
+                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                oos.writeObject(bytes);
+                oos.flush();
+
                 socket.close();
 
                 final String sentMsg = "File sent to: " + socket.getInetAddress();
-                WifiServerActivity.this.runOnUiThread(new Runnable() {
+                WifiServerPhotoActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
-                        Toast.makeText(WifiServerActivity.this,
+                        Toast.makeText(WifiServerPhotoActivity.this,
                                 sentMsg,
                                 Toast.LENGTH_LONG).show();
                     }});

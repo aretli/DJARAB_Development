@@ -32,8 +32,17 @@ public class WifiMainActivity extends Activity {
         Intent myIntent = new Intent(this, WifiServerActivity.class);
         startActivity(myIntent);
     }
+    public void serverPhotoHandler(View v)
+    {
+        Intent myIntent = new Intent(this, WifiServerPhotoActivity.class);
+        startActivity(myIntent);
+    }
     public void clientHandler(View v) {
         Intent myIntent = new Intent(this, WifiClientActivity.class);
+        startActivity(myIntent);
+    }
+    public void clientPhotoHandler(View v) {
+        Intent myIntent = new Intent(this, WifiClientPhotoActivity.class);
         startActivity(myIntent);
     }
     public void wifiConfigHandler(View v) {

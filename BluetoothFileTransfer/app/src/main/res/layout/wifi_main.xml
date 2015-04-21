@@ -24,8 +24,22 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Send Photo"
+        android:onClick="serverPhotoHandler"
+        style="@style/btnStyleGenoa"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Receive File"
         android:onClick="clientHandler"
+        style="@style/btnStyleGenoa"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Receive Photo"
+        android:onClick="clientPhotoHandler"
         style="@style/btnStyleGenoa"/>
 
     <Button
