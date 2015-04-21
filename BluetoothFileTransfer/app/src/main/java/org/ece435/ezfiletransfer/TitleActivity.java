@@ -37,14 +37,6 @@ public class TitleActivity extends Activity {
         Intent myIntent = new Intent(this, FileActivity.class);
         startActivity(myIntent);
     }
-    public void wifiConfigHandler(View v) {
-        Intent myIntent = new Intent(this, WifiConfigActivity.class);
-        startActivity(myIntent);
-    }
-    public void wifiListNetworkHandler(View v) {
-        Intent myIntent = new Intent(this, WifiListNetworkActivity.class);
-        startActivity(myIntent);
-    }
     public void wifiMainHandler(View v) {
         Intent myIntent = new Intent(this, WifiMainActivity.class);
         startActivity(myIntent);

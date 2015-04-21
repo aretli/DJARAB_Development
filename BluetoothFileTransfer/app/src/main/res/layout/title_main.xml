@@ -35,19 +35,6 @@
         android:onClick="configHandler"
         style="@style/btnStyleGenoa"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="WiFi Configuration"
-        android:onClick="wifiConfigHandler"
-        style="@style/btnStyleGenoa"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="WiFi List Networks"
-        android:onClick="wifiListNetworkHandler"
-        style="@style/btnStyleGenoa"/>
 
     <Button
         android:layout_width="match_parent"
