@@ -23,6 +23,12 @@
         android:text="File Transfer Server"
         android:textStyle="bold" />
 
+    <EditText
+        android:id="@+id/filename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="File Name" />
+
     <TextView
         android:id="@+id/infoport"
         android:layout_width="wrap_content"
@@ -34,5 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save" />
 
 </LinearLayout>

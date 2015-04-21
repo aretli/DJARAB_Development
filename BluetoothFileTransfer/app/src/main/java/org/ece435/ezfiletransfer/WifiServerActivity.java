@@ -16,13 +16,18 @@ import java.util.Enumeration;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class WifiServerActivity extends ActionBarActivity {
 
+    String filename;
     TextView infoIp, infoPort;
-
+    EditText editFileName;
+    Button buttonSave;
     static final int SocketServerPORT = 8080;
     ServerSocket serverSocket;
 
@@ -32,13 +37,19 @@ public class WifiServerActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wifiserver_main);
+        editFileName = (EditText) findViewById(R.id.filename);
         infoIp = (TextView) findViewById(R.id.infoip);
         infoPort = (TextView) findViewById(R.id.infoport);
-
+        buttonSave = (Button) findViewById(R.id.connect);
         infoIp.setText(getIpAddress());
+        buttonSave.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                filename = editFileName.getText().toString();
+                serverSocketThread = new ServerSocketThread();
+                serverSocketThread.start();
+        }});
 
-        serverSocketThread = new ServerSocketThread();
-        serverSocketThread.start();
     }
 
     @Override
@@ -99,7 +110,7 @@ public class WifiServerActivity extends ActionBarActivity {
                     @Override
                     public void run() {
                         infoPort.setText("I'm waiting here: "
-                                + serverSocket.getLocalPort());
+                                + serverSocket.getLocalPort() + " with file: " + filename);
                     }});
 
                 while (true) {
@@ -135,8 +146,9 @@ public class WifiServerActivity extends ActionBarActivity {
         public void run() {
             File file = new File(
                     Environment.getExternalStorageDirectory(),
-                    WifiClientActivity.filename);
-
+                    filename);
+            final String fileMsg = "File name is: " + filename;
+            Toast.makeText(WifiServerActivity.this, fileMsg, Toast.LENGTH_LONG).show();
             byte[] bytes = new byte[(int) file.length()];
             BufferedInputStream bis;
             try {
