@@ -18,14 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Send File"
-        android:onClick="clientHandler"
+        android:onClick="serverHandler"
         style="@style/btnStyleGenoa"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Receive File"
-        android:onClick="serverHandler"
+        android:onClick="clientHandler"
         style="@style/btnStyleGenoa"/>
 
     <Button

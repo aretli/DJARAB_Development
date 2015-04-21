@@ -1,4 +1,4 @@
-package org.ece435.bluetoothfiletransfer;
+package org.ece435.ezfiletransfer;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;

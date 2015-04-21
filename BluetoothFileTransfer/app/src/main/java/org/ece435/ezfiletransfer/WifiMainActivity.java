@@ -1,9 +1,8 @@
-package org.ece435.bluetoothfiletransfer;
+package org.ece435.ezfiletransfer;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 /**
  * Created by Anthony on 3/20/2015.
  */
-public class TitleActivity extends Activity {
+public class WifiMainActivity extends Activity {
 
     private TextView name;
     private ImageView logo;
@@ -24,18 +23,17 @@ public class TitleActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.title_main);
+        setContentView(R.layout.wifi_main);
         name = (TextView) findViewById(R.id.name);
-        logo = (ImageView) findViewById(R.id.logo);
     }
 
-    public void configHandler(View v)
+    public void serverHandler(View v)
     {
-        Intent myIntent = new Intent(this, ConfigurationActivity.class);
+        Intent myIntent = new Intent(this, WifiServerActivity.class);
         startActivity(myIntent);
     }
-    public void fileHandler(View v) {
-        Intent myIntent = new Intent(this, FileActivity.class);
+    public void clientHandler(View v) {
+        Intent myIntent = new Intent(this, WifiClientActivity.class);
         startActivity(myIntent);
     }
     public void wifiConfigHandler(View v) {
@@ -44,10 +42,6 @@ public class TitleActivity extends Activity {
     }
     public void wifiListNetworkHandler(View v) {
         Intent myIntent = new Intent(this, WifiListNetworkActivity.class);
-        startActivity(myIntent);
-    }
-    public void wifiMainHandler(View v) {
-        Intent myIntent = new Intent(this, WifiMainActivity.class);
         startActivity(myIntent);
     }
 
@@ -72,4 +66,10 @@ public class TitleActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void returnHomeHandler(View v)
+    {
+        finish();//Ends activity
+    }
+
 }

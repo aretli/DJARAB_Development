@@ -1,4 +1,4 @@
-package org.ece435.bluetoothfiletransfer;
+package org.ece435.ezfiletransfer;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -11,8 +11,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class WifiListNetworkActivity extends Activity {

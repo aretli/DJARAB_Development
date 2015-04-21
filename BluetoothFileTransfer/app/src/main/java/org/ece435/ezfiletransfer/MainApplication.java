@@ -1,4 +1,4 @@
-package org.ece435.bluetoothfiletransfer;
+package org.ece435.ezfiletransfer;
 
 import android.app.Application;
 import android.bluetooth.BluetoothAdapter;
@@ -8,16 +8,9 @@ import android.util.Log;
 
 import java.util.Set;
 
-import android.app.Application;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.os.Handler;
-import android.util.Log;
 import com.simonguest.btxfr.ClientThread;
 import com.simonguest.btxfr.ProgressData;
 import com.simonguest.btxfr.ServerThread;
-
-import java.util.Set;
 
 public class MainApplication extends Application {
     private static String TAG = "BTPHOTO/MainApplication";

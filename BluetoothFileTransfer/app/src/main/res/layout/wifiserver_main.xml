@@ -14,32 +14,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:autoLink="web"
-        android:text= "Receive File"
+        android:text="Wifi File Transfer Server"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="File Transfer Server"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/infoport"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textStyle="italic" />
+
     <TextView
         android:id="@+id/infoip"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <TextView
-            android:id="@+id/msg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ScrollView>
-
-    <Button
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back To WiFi Home Screen"
-        android:onClick="returnHomeHandler" />
+        android:textStyle="italic" />
 
 </LinearLayout>

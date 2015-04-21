@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.ece435.bluetoothfiletransfer" >
+    package="org.ece435.ezfiletransfer" >
 
     <application
-        android:name=".MainApplication"
+        android:name="org.ece435.ezfiletransfer.MainApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ConfigurationActivity"
+            android:name="org.ece435.ezfiletransfer.ConfigurationActivity"
             android:label="@string/configuration" >
         </activity>
         <activity
-            android:name=".PairActivity"
+            android:name="org.ece435.ezfiletransfer.PairActivity"
             android:label="@string/paired_devices" >
         </activity>
         <activity
-            android:name=".FileActivity"
+            android:name="org.ece435.ezfiletransfer.FileActivity"
             android:label="@string/send_receive" >
         </activity>
         <activity
-            android:name=".WifiConfigActivity"
+            android:name="org.ece435.ezfiletransfer.WifiConfigActivity"
             android:label="@string/wificonfig" >
         </activity>
         <activity
-            android:name=".WifiListNetworkActivity"
+            android:name="org.ece435.ezfiletransfer.WifiListNetworkActivity"
             android:label="@string/wifilistnetwork" >
         </activity>
         <activity
-            android:name=".WifiServerActivity"
+            android:name="org.ece435.ezfiletransfer.WifiServerActivity"
             android:label="@string/wifiserver" >
         </activity>
         <activity
-            android:name=".WifiClientActivity"
+            android:name="org.ece435.ezfiletransfer.WifiClientActivity"
             android:label="@string/wificlient" >
         </activity>
         <activity
-            android:name=".WifiMainActivity"
+            android:name="org.ece435.ezfiletransfer.WifiMainActivity"
             android:label="@string/wifihome" >
         </activity>
         <activity
-            android:name=".TitleActivity"
+            android:name="org.ece435.ezfiletransfer.TitleActivity"
             android:label="@string/home" >
             <intent-filter>
             <action android:name="android.intent.action.MAIN" />
